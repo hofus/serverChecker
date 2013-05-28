@@ -20,10 +20,15 @@ public class Checker extends TimerTask {
     private static final String HTTP = "http";
     private static final String HEAD = "HEAD";
     private static final String LOG_MSG = "Error with: ";
+    private final Mailer mailer;
+    private final ServerSettings serverSettings;
     private final String url;
     private final int timeout;
+    private boolean statusOK = true;
 
-    public Checker(final ServerSettings pSettings) {
+    public Checker(final ServerSettings pSettings, final Mailer pMailer) {
+        mailer = pMailer;
+        serverSettings = pSettings;
         url = pSettings.getServerUrl().replaceFirst(HTTPS, HTTP);
 
         timeout = pSettings.getTimeout();
@@ -49,5 +54,15 @@ public class Checker extends TimerTask {
 
     @Override
     public void run() {
+        if (ping()) {
+            statusOK = true;
+            LOG.info(url.concat(" is OK"));
+        } else if (statusOK) {
+            statusOK = false;
+            LOG.info(url.concat(" is not OK"));
+            mailer.sendMail(serverSettings);
+        } else {
+            LOG.info(url.concat(" is still not OK"));
+        }
     }
 }

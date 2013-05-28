@@ -1,7 +1,9 @@
 package lt.oworks.serverchecker;
 
 import java.io.File;
+import lt.oworks.serverchecker.control.Controller;
 import lt.oworks.serverchecker.control.SettingsLoader;
+import lt.oworks.serverchecker.model.settings.AppSettings;
 import org.apache.log4j.BasicConfigurator;
 
 /**
@@ -16,8 +18,10 @@ public class Main {
             System.err.println("Need settings file path");
         } else {
             System.out.println("Starting");
+            AppSettings settings = SettingsLoader.loadSettings(new File(args[0]));
+            new Controller(settings).startCheckers();
         }
-        
-        SettingsLoader.loadSettings(new File("testXml.xml"));
+
+
     }
 }

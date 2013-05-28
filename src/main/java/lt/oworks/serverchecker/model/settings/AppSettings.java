@@ -20,4 +20,20 @@ public class AppSettings {
     @XmlElementWrapper(name = "servers")
     @XmlElement(name = "server")
     private List<ServerSettings> servers;
+
+    public EMailSettings getEmail() {
+        return email;
+    }
+
+    public void setEmail(EMailSettings email) {
+        this.email = email;
+    }
+
+    public List<ServerSettings> getServers() {
+        return servers;
+    }
+
+    public void setServers(List<ServerSettings> servers) {
+        this.servers = servers;
+    }
 }
