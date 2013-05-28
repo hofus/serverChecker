@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <email>
+        <username>user</username>
+        <password>psw</password>
+        
+        <smtpHost>host</smtpHost>
+    </email>
+    <servers>
+        <server>
+            <emailFrom>from</emailFrom>
+            <emailTo>to</emailTo>
+            <emailSubject>subject</emailSubject>
+            <emailMessage>msg</emailMessage>
+            <serverUrl>url</serverUrl>
+        </server>
+    </servers>
+</settings>

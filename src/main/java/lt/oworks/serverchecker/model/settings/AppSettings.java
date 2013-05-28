@@ -3,7 +3,8 @@ package lt.oworks.serverchecker.model.settings;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -14,8 +15,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class AppSettings {
 
-    @XmlAttribute(required = true)
+    @XmlElement(name = "email")
     private EMailSettings email;
-    @XmlAttribute(required = true)
+    @XmlElementWrapper(name = "servers")
+    @XmlElement(name = "server")
     private List<ServerSettings> servers;
 }
