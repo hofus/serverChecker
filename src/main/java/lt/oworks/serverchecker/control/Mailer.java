@@ -27,7 +27,7 @@ public class Mailer {
         mailSettings = pMailSettings;
         Properties props = new Properties();
         props.setProperty("mail.smtp.auth", Boolean.toString(mailSettings.isSmtpAuth()));
-        props.setProperty("mail.smtp.starttls", Boolean.toString(mailSettings.isSmtpStarttlsEnable()));
+        props.setProperty("mail.smtp.starttls.enable", Boolean.toString(mailSettings.isSmtpStarttlsEnable()));
         props.setProperty("mail.smtp.host", mailSettings.getSmtpHost());
         props.setProperty("mail.smtp.port", mailSettings.getSmtpPort());
 
@@ -35,7 +35,7 @@ public class Mailer {
                 new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(mailSettings.getUsername(), mailSettings.getUsername());
+                return new PasswordAuthentication(mailSettings.getUsername(), mailSettings.getPassword());
             }
         });
     }

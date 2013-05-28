@@ -46,7 +46,6 @@ public class Checker extends TimerTask {
         } catch (MalformedURLException ex) {
             LOG.error(LOG_MSG.concat(url), ex);
         } catch (IOException ex) {
-            LOG.error(LOG_MSG.concat(url), ex);
         } finally {
             return result;
         }
