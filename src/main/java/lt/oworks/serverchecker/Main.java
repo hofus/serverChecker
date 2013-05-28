@@ -1,7 +1,7 @@
 package lt.oworks.serverchecker;
 
 import java.io.File;
-import lt.oworks.serverchecker.model.logic.SettingsLoader;
+import lt.oworks.serverchecker.control.SettingsLoader;
 import org.apache.log4j.BasicConfigurator;
 
 /**

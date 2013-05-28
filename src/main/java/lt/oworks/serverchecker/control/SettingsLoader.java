@@ -1,4 +1,4 @@
-package lt.oworks.serverchecker.model.logic;
+package lt.oworks.serverchecker.control;
 
 import java.io.File;
 import javax.xml.bind.JAXBContext;
