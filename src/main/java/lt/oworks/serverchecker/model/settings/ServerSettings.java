@@ -14,6 +14,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ServerSettings {
 
+    @XmlAttribute
+    private boolean ignored = false;
     @XmlElement(required = true)
     private String emailFrom;
     @XmlElement(required = true)
@@ -81,5 +83,13 @@ public class ServerSettings {
 
     public void setInterval(int interval) {
         this.interval = interval;
+    }
+
+    public boolean isIgnored() {
+        return ignored;
+    }
+
+    public void setIgnored(boolean ignored) {
+        this.ignored = ignored;
     }
 }
